@@ -393,6 +393,7 @@ async def _patched_push_bot_message(
     plt_response: Any = None,
     db_chat_channel: Any = None,
     ref_msg_id: Optional[str] = None,
+    normalize_at_markup: bool = True,
 ):
     if _original_push_bot_message is None:
         raise RuntimeError("RecallGuard 未正确挂载 push_bot_message")
@@ -403,6 +404,7 @@ async def _patched_push_bot_message(
         plt_response=plt_response,
         db_chat_channel=db_chat_channel,
         ref_msg_id=ref_msg_id,
+        normalize_at_markup=normalize_at_markup,
     )
 
     if not plugin.is_enabled or not config.ENABLE_AUTO_RECALL:
